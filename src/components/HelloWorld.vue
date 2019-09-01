@@ -10,15 +10,20 @@ import Vue, { PropType } from 'vue';
 export default Vue.extend({
   name: 'HelloWorld',
   props: {
-    value: [Number,String],
-    requiredValue: {
-      type: [Number,String],
+    obj: {
+      type: Object as PropType<{ name: string }>,
       required: true
+    },
+    arr: {
+      type: Array as PropType<{ task: string}[]>
     }
   },
   computed: {
-    message(): string {
-      return this.msg
+    myName(): string {
+      return this.obj.name
+    },
+    myFirstTask(): string {
+      return this.arr[0].task
     }
   }
 });
