@@ -3,18 +3,24 @@
 </template>
 
 <script lang="ts">
-    import Vue from "vue"
+  import Vue from "vue"
+
+  export type Todo = {
+    id: string
+    task: string
+    done: boolean
+  }
+  export type Data = {
+    firstName: string
+    lastName: string
+    todos: Todo[]
+  }
   export default Vue.extend({
     name: "AppTodoList",
-    data: () => ({
-      firstName: '',
-      lastName: '',
-      doneTodos: null as null | boolean,
-      todos: [] as Array<{
-        id: string
-        task: string
-        done: boolean
-      }>
+    data: (): Data => ({
+      firstName: 'taro',
+      lastName: 'Yamada',
+      todos: []
     })
   })
 </script>
