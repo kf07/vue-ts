@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>{{ greet }}</h1>
   </div>
 </template>
 
@@ -9,21 +9,9 @@ import Vue, { PropType } from 'vue';
 
 export default Vue.extend({
   name: 'HelloWorld',
-  props: {
-    obj: {
-      type: Object as PropType<{ name: string }>,
-      required: true
-    },
-    arr: {
-      type: Array as PropType<{ task: string}[]>
-    }
-  },
   computed: {
-    myName(): string {
-      return this.obj.name
-    },
-    myFirstTask(): string {
-      return this.arr[0].task
+    greet(): string {
+      return "Hello World!"
     }
   }
 });
