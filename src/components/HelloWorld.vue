@@ -1,6 +1,8 @@
 <template>
     <div class="hello">
-
+        <div @click="onClickElement">
+            ボタン
+        </div>
     </div>
 </template>
 
@@ -21,8 +23,11 @@
       bounds: null as ClientRect | DOMRect | null
     }),
     methods: {
-      onClickElement({target}: { target: HTMLElement }): void {
-        this.bounds = target.getBoundingClientRect()
+      onClickElement(event: Event): void {
+        if (!event.isTrusted) return
+        if (event.target instanceof HTMLElement) {
+          this.bounds = event.target.getBoundingClientRect()
+        }
       }
     },
     computed: {
